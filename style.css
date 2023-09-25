@@ -6,7 +6,7 @@
 }
 a, a:link, a:visited{
     text-decoration: none;
-    color:inherit;
+    color: inherit;
 }
 li{
     list-style: none;
@@ -17,10 +17,19 @@ li{
 }
 /* header */
 header{
-    position: absolute;
-    top:0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
     width: 100%;
     padding: 1rem;
+}
+header.active{
+    background-color: black;
+    animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
 }
 header .container{
     display: flex;
@@ -56,7 +65,7 @@ main{
     background-size: cover;
     display: flex;
     justify-content: center;
-    align-items:  center;
+    align-items: center;
     text-align: center;
 }
 main h4{
@@ -93,7 +102,6 @@ main button.mouse{
     left: 50%;
     transform: translateX(-50%);
     animation: upDown 1s ease-in-out infinite;
-    cursor: pointer;
 }
 main h2 span::after{
     content: "";
@@ -104,23 +112,13 @@ main h2 span::after{
     animation: blink 0.7s ease-in-out infinite;
 }
 @keyframes blink{
-    0%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-    }
+    0%{opacity: 1;}
+    100%{opacity: 0;}
 }
 @keyframes upDown{
-    0%{
-        bottom:1rem;
-    }
-    50%{
-        bottom:1.5rem;
-    }
-    100%{
-        bottom:1rem;
-    }
+    0%{bottom: 1rem;}
+    50%{bottom: 1.5rem;}
+    100%{bottom: 1rem;}
 }
 section{
     font-family: 'Poppins', sans-serif;
@@ -135,15 +133,10 @@ section .title{
 section .title h4{
     font-size: 1.35rem;
     color: #ed4848;
-    position: relative;
 }
 section .title h2{
     font-size: 3.5rem;
 }
-section .title p{
-    font-size: 1.15rem;
-}
-
 /* about me */
 section .about-self::after{
     content: '';
@@ -154,11 +147,11 @@ section .about-self .left img{
     width: 100%;
 }
 section .about-self .left{
-    float:left;
+    float: left;
     width: 50%;
 }
 section .about-self .right{
-    float:right;
+    float: right;
     width: 50%;
     padding: 0 2rem;
 }
@@ -220,19 +213,18 @@ section .do-me .do-inner:hover .icon i{
     height: 650px;
 }
 /* portfolio */
+section .portfolio-me::after{
+    content: '';
+    display: block;
+    clear: both;
+}
 section .portfolio-me .portfolio-inner{
     width: 30%;
     margin-right: 5%;
-    background-color: white;
     float: left;
     padding: 1rem 1rem 1.5rem 1rem;
     border: 1px solid #ccc;
     margin-bottom: 3rem;
-}
-section .portfolio-me::after{
-    content: "";
-    display: block;
-    clear: both;
 }
 section .portfolio-me .portfolio-inner:nth-child(3n){
     margin-right: 0;
@@ -263,8 +255,6 @@ section .contact-me .right{
     width: 65%;
     float: left;
     margin-left: 5%;
-    border: 1px solid #ccc;
-    padding: 1rem;
 }
 section .contact-me .left .card{
     border: 1px solid #ccc;
@@ -273,7 +263,7 @@ section .contact-me .left .card{
     align-items: center;
     margin-bottom: 1.25rem;
 }
-section .contact-me .left .icon i{
+section .contact-me .left .card .icon i{
     font-size: 2rem;
     margin-right: 15px;
 }
@@ -294,15 +284,10 @@ section .contact-me .right .form-group input{
 section .contact-me .right .form-group textarea{
     width: 100%;
     height: 300px;
-    outline: none;
     resize: none;
+    outline: none;
     border: 1px solid #ccc;
     border-radius: 10px;
-}
-section .contact-me .right .form-group input:focus,
-section .contact-me .right .form-group textarea:focus{
-    border: 1px solid #719ece;
-    box-shadow: 0 0 10px #719ece;
 }
 section .contact-me .right button{
     width: 100%;
@@ -310,6 +295,11 @@ section .contact-me .right button{
     background-color: #f78200;
     border: none;
     color: white;
+}
+section .contact-me .right .form-group input:focus,
+section .contact-me .right .form-group textarea:focus{
+    border: 1px solid #719ece;
+    box-shadow: 0 0 10px #719ece;
 }
 /* media query */
 @media screen and (max-width: 1140px){
